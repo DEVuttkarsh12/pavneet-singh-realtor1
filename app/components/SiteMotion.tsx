@@ -55,12 +55,8 @@ const revealSelectors = [
   ".footer-grid > *",
 ].join(",");
 
-const parallaxSelectors = [
-  [".hero-image video", 0.055],
-  [".page-hero-image img", 0.035],
-  [".locations-image img", 0.045],
-  [".service-trust-image img", 0.025],
-] as const;
+const scrollScrubFps = 10;
+const scrollScrubInterval = 1000 / scrollScrubFps;
 
 export function SiteMotion() {
   useEffect(() => {
@@ -93,44 +89,67 @@ export function SiteMotion() {
 
     items.forEach((item) => revealObserver.observe(item));
 
-    const parallaxItems = parallaxSelectors.flatMap(([selector, factor]) =>
-      Array.from(document.querySelectorAll<HTMLElement>(selector)).map((element) => ({
-        element,
-        factor,
-      })),
-    );
-
     let frame = 0;
-    const updateParallax = () => {
+    let videoSeekTimer = 0;
+    let targetVideoTime = 0;
+    let lastVideoSeek = 0;
+
+    const seekScrollVideo = () => {
+      videoSeekTimer = 0;
+      if (!scrollVideo?.duration || !Number.isFinite(scrollVideo.duration)) return;
+
+      const now = performance.now();
+      const wait = scrollScrubInterval - (now - lastVideoSeek);
+      if (wait > 0) {
+        videoSeekTimer = window.setTimeout(seekScrollVideo, wait);
+        return;
+      }
+
+      if (scrollVideo.seeking) {
+        videoSeekTimer = window.setTimeout(seekScrollVideo, scrollScrubInterval);
+        return;
+      }
+
+      const frameStep = 1 / scrollScrubFps;
+      const boundedTime = Math.max(0, Math.min(scrollVideo.duration - frameStep, targetVideoTime));
+      const snappedTime = Math.round(boundedTime * scrollScrubFps) / scrollScrubFps;
+
+      if (Math.abs(scrollVideo.currentTime - snappedTime) < frameStep) return;
+
+      const fastSeek = (scrollVideo as HTMLVideoElement & { fastSeek?: (time: number) => void }).fastSeek;
+      if (typeof fastSeek === "function") {
+        fastSeek.call(scrollVideo, snappedTime);
+      } else {
+        scrollVideo.currentTime = snappedTime;
+      }
+      lastVideoSeek = now;
+    };
+
+    const scheduleVideoSeek = () => {
+      if (!scrollVideo || videoSeekTimer) return;
+      videoSeekTimer = window.setTimeout(seekScrollVideo, 0);
+    };
+
+    const updateMotion = () => {
       frame = 0;
       const progress = Math.min(1, window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight));
       document.documentElement.style.setProperty("--scroll-progress", progress.toFixed(4));
       if (scrollVideo?.duration && Number.isFinite(scrollVideo.duration)) {
-        const targetTime = Math.max(0, Math.min(scrollVideo.duration - 0.05, progress * scrollVideo.duration));
-        if (Math.abs(scrollVideo.currentTime - targetTime) > 0.035) {
-          scrollVideo.currentTime = targetTime;
-        }
+        targetVideoTime = progress * scrollVideo.duration;
+        scheduleVideoSeek();
       }
-      const viewportCenter = window.innerHeight / 2;
-      parallaxItems.forEach(({ element, factor }) => {
-        const rect = element.parentElement?.getBoundingClientRect();
-        if (!rect || rect.bottom < -150 || rect.top > window.innerHeight + 150) return;
-        const elementCenter = rect.top + rect.height / 2;
-        const offset = Math.max(-60, Math.min(60, (viewportCenter - elementCenter) * factor));
-        element.style.setProperty("--parallax-y", `${offset.toFixed(2)}px`);
-      });
     };
 
     const requestUpdate = () => {
       if (frame) return;
-      frame = window.requestAnimationFrame(updateParallax);
+      frame = window.requestAnimationFrame(updateMotion);
     };
 
     const handleVideoReady = () => requestUpdate();
     scrollVideo?.pause();
     scrollVideo?.addEventListener("loadedmetadata", handleVideoReady);
 
-    updateParallax();
+    updateMotion();
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
 
@@ -140,6 +159,7 @@ export function SiteMotion() {
       window.removeEventListener("resize", requestUpdate);
       scrollVideo?.removeEventListener("loadedmetadata", handleVideoReady);
       if (frame) window.cancelAnimationFrame(frame);
+      if (videoSeekTimer) window.clearTimeout(videoSeekTimer);
       document.body.classList.remove("motion-enabled");
     };
   }, []);

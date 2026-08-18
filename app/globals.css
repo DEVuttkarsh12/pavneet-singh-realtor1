@@ -170,6 +170,7 @@ textarea:focus-visible {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  contain: strict;
   background: var(--ink);
 }
 
@@ -188,6 +189,8 @@ textarea:focus-visible {
   object-fit: cover;
   opacity: 0.88;
   filter: saturate(0.86) contrast(1.05);
+  transform: translateZ(0);
+  will-change: opacity;
 }
 
 body > main {
