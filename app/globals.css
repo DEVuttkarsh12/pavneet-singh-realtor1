@@ -10,6 +10,10 @@
   --sage: #78908a;
   --line: rgba(7, 21, 35, 0.17);
   --muted: #61707b;
+  --panel-radius: 8px;
+  --control-radius: 6px;
+  --surface-warm: #f4efe5;
+  --surface-tint: rgba(244, 239, 229, 0.72);
   --serif: "Iowan Old Style", Baskerville, "Times New Roman", Georgia, serif;
   --sans: Inter, Arial, Helvetica, sans-serif;
   --scroll-progress: 0;
@@ -354,7 +358,8 @@ textarea:focus-visible {
   justify-content: space-between;
   gap: 34px;
   padding: 0 22px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(201, 164, 93, 0.38);
+  border-radius: var(--control-radius);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -555,6 +560,8 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   min-height: 560px;
+  overflow: hidden;
+  border-radius: var(--panel-radius);
 }
 
 .service-card {
@@ -652,6 +659,7 @@ textarea:focus-visible {
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
+  border-radius: var(--panel-radius);
   background: var(--ink);
   border: 1px solid rgba(201, 164, 93, 0.38);
   box-shadow: 0 32px 80px rgba(7, 21, 35, 0.12);
@@ -662,6 +670,7 @@ textarea:focus-visible {
   position: absolute;
   z-index: 2;
   inset: 12px;
+  border-radius: 5px;
   border: 1px solid rgba(230, 207, 155, 0.34);
   pointer-events: none;
 }
@@ -722,6 +731,8 @@ textarea:focus-visible {
 .client-spectrum span {
   padding: 9px 11px;
   border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  background: var(--surface-tint);
   color: #4f5d67;
   font-size: 11px;
   font-weight: 700;
@@ -762,6 +773,8 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(430px, 0.92fr);
   min-height: 670px;
+  overflow: hidden;
+  border-radius: var(--panel-radius);
   background: var(--paper);
   box-shadow: 0 30px 100px rgba(7, 21, 35, 0.1);
 }
@@ -829,7 +842,7 @@ textarea:focus-visible {
   padding: 21px 14px;
   border: 0;
   border-right: 1px solid var(--line);
-  background: transparent;
+  background: var(--surface-tint);
   color: var(--muted);
   font-size: 11px;
   font-weight: 800;
@@ -1086,6 +1099,9 @@ textarea:focus-visible {
 .guide-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  border-radius: var(--panel-radius);
+  background: var(--paper);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -1097,6 +1113,7 @@ textarea:focus-visible {
   gap: 28px;
   align-items: end;
   padding: 38px;
+  background: var(--paper);
   transition: background 250ms ease, color 250ms ease;
 }
 
@@ -1135,6 +1152,8 @@ textarea:focus-visible {
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  background: var(--surface-tint);
   transition: transform 220ms ease;
 }
 
@@ -1163,6 +1182,9 @@ textarea:focus-visible {
 .insight-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+  border-radius: var(--panel-radius);
+  background: var(--paper);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -1174,6 +1196,7 @@ textarea:focus-visible {
   flex-direction: column;
   padding: 30px;
   border-right: 1px solid var(--line);
+  background: var(--paper);
   transition: background 300ms ease, color 300ms ease, transform 300ms ease;
 }
 
@@ -1274,6 +1297,8 @@ textarea:focus-visible {
   display: grid;
   gap: 28px;
   padding: 42px;
+  border: 1px solid rgba(201, 164, 93, 0.2);
+  border-radius: var(--panel-radius);
   background: var(--paper);
   color: var(--ink);
 }
@@ -1301,11 +1326,10 @@ textarea:focus-visible {
 .contact-form select,
 .contact-form textarea {
   width: 100%;
-  padding: 13px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  border-radius: 0;
-  background: transparent;
+  padding: 13px 14px;
+  border: 1px solid rgba(7, 21, 35, 0.13);
+  border-radius: var(--control-radius);
+  background-color: var(--surface-tint);
   color: var(--ink);
   font-size: 15px;
   resize: vertical;
@@ -1530,6 +1554,7 @@ textarea:focus-visible {
   margin: 45px 0;
   padding: 30px;
   border-left: 2px solid var(--gold);
+  border-radius: var(--panel-radius);
   background: var(--ivory);
   color: var(--ink);
   font-family: var(--serif);
@@ -1541,6 +1566,8 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 60px;
+  overflow: hidden;
+  border-radius: var(--panel-radius);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -1913,6 +1940,7 @@ textarea:focus-visible {
   min-height: 620px;
   margin: 0;
   overflow: hidden;
+  border-radius: var(--panel-radius);
   background: var(--ink);
 }
 
@@ -1939,6 +1967,7 @@ textarea:focus-visible {
   left: 22px;
   bottom: 20px;
   padding: 9px 12px;
+  border-radius: var(--control-radius);
   background: rgba(6, 18, 46, 0.86);
   color: var(--gold-light);
   font-size: 11px;
@@ -2147,6 +2176,8 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: 1.45fr 0.8fr 0.8fr;
   margin-top: -1px;
+  overflow: hidden;
+  border-radius: var(--panel-radius);
   background: var(--paper);
   border: 1px solid var(--line);
   box-shadow: 0 25px 80px rgba(7, 21, 35, 0.08);
@@ -2176,10 +2207,10 @@ textarea:focus-visible {
 .marketplace-toolbar select {
   width: 100%;
   min-height: 38px;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
+  padding: 0 12px;
+  border: 1px solid rgba(7, 21, 35, 0.11);
+  border-radius: var(--control-radius);
+  background-color: var(--surface-tint);
   color: var(--ink);
   font-family: var(--serif);
   font-size: 16px;
@@ -2206,6 +2237,7 @@ textarea:focus-visible {
   padding: 25px 28px;
   border: 1px solid rgba(201, 164, 93, 0.3);
   border-left: 3px solid var(--gold);
+  border-radius: var(--panel-radius);
   background: #f4efe5;
 }
 
@@ -2283,10 +2315,10 @@ textarea:focus-visible {
 }
 
 .market-reset {
-  padding: 0 0 5px;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
+  padding: 9px 12px;
+  border: 1px solid rgba(201, 164, 93, 0.3);
+  border-radius: var(--control-radius);
+  background: var(--surface-tint);
   color: var(--ink);
   font-size: 12px;
   font-weight: 700;
@@ -2300,6 +2332,8 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(430px, 1.08fr);
   margin-top: 48px;
+  overflow: hidden;
+  border-radius: var(--panel-radius);
   background: var(--ivory);
 }
 
@@ -2375,6 +2409,7 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-radius: var(--panel-radius);
   border: 1px solid var(--line);
   background: #fbfaf7;
   transition: transform 400ms ease, box-shadow 400ms ease, border-color 400ms ease;
@@ -2457,6 +2492,8 @@ textarea:focus-visible {
   left: 16px;
   top: 16px;
   padding: 8px 10px;
+  border: 1px solid rgba(230, 207, 155, 0.22);
+  border-radius: var(--control-radius);
   background: rgba(5, 17, 28, 0.88);
   color: white;
   font-size: 11px;
@@ -2895,8 +2932,10 @@ textarea:focus-visible {
     align-items: center;
     gap: 12px;
     justify-self: end;
-    border: 0;
-    background: transparent;
+    padding: 10px 12px;
+    border: 1px solid rgba(230, 207, 155, 0.26);
+    border-radius: var(--control-radius);
+    background: rgba(230, 207, 155, 0.08);
     color: white;
     font-size: 12px;
     text-transform: uppercase;
@@ -3840,6 +3879,8 @@ textarea:focus-visible {
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  background: var(--surface-tint);
   color: var(--gold);
   font-style: normal;
   transition: background 220ms ease, color 220ms ease, transform 220ms ease;
@@ -3906,6 +3947,8 @@ textarea:focus-visible {
   right: 18px;
   bottom: 16px;
   padding: 8px 10px;
+  border: 1px solid rgba(230, 207, 155, 0.2);
+  border-radius: var(--control-radius);
   background: rgba(5, 17, 28, 0.76);
   color: rgba(255, 255, 255, 0.8);
   font-size: 11px;
@@ -3970,6 +4013,8 @@ textarea:focus-visible {
 .property-detail-price-line span {
   padding: 9px 12px;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--control-radius);
+  background: rgba(5, 17, 28, 0.42);
   color: var(--gold-light);
   font-size: 11px;
   font-weight: 750;
@@ -4037,6 +4082,9 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
+  overflow: hidden;
+  border-radius: var(--panel-radius);
+  background: rgba(244, 239, 229, 0.44);
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
@@ -4122,6 +4170,7 @@ textarea:focus-visible {
   align-items: center;
   margin-top: 72px;
   padding: 60px;
+  border-radius: var(--panel-radius);
   background: var(--ink-soft);
   color: white;
 }
@@ -4176,6 +4225,7 @@ textarea:focus-visible {
   position: sticky;
   top: 98px;
   overflow: hidden;
+  border-radius: var(--panel-radius);
   background: var(--ink);
   color: white;
   box-shadow: 0 30px 80px rgba(7, 21, 35, 0.14);
@@ -4233,6 +4283,7 @@ textarea:focus-visible {
 .related-property-card {
   min-width: 0;
   overflow: hidden;
+  border-radius: var(--panel-radius);
   background: var(--paper);
   border: 1px solid var(--line);
   transition: transform 300ms ease, box-shadow 300ms ease;
@@ -4285,6 +4336,8 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-top: 36px;
+  overflow: hidden;
+  border-radius: var(--panel-radius);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
