@@ -29,7 +29,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--ink);
   color: var(--ink);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
@@ -162,6 +162,37 @@ textarea:focus-visible {
   pointer-events: none;
   background: linear-gradient(90deg, var(--gold), var(--gold-light));
   box-shadow: 0 0 18px rgba(201, 164, 93, 0.45);
+}
+
+.scroll-background {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--ink);
+}
+
+.scroll-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 14, 24, 0.72), rgba(3, 14, 24, 0.3) 52%, rgba(3, 14, 24, 0.66)),
+    linear-gradient(0deg, rgba(7, 21, 35, 0.76), rgba(7, 21, 35, 0.16) 50%, rgba(7, 21, 35, 0.62));
+}
+
+.scroll-background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.88;
+  filter: saturate(0.86) contrast(1.05);
+}
+
+body > main {
+  position: relative;
+  z-index: 1;
 }
 
 .brand-text {
@@ -4725,4 +4756,196 @@ textarea:focus-visible {
   .personal-credentials article + article {
     border-top: 1px solid var(--line);
   }
+}
+
+/* Local experiment: fixed scroll-scrubbed video backdrop across the site. */
+.intro-band,
+.portrait-section,
+.advisory-lens,
+.process,
+.proof-section,
+.locations,
+.guides-section,
+.contact-section,
+.page-shell .site-header,
+.page-hero,
+.content-section,
+.services-content,
+.about-feature,
+.service-trust,
+.contact-page-hero,
+.contact-process,
+.community-proof,
+.marketplace-preview,
+.marketplace-hero,
+.property-detail-content,
+.marketplace-browser,
+.marketplace-service-note,
+.related-properties,
+.page-cta,
+.contact-page-form,
+.footer,
+.section-dark,
+.lens-stage,
+.contact-form,
+.marketplace-toolbar,
+.marketplace-empty,
+.market-reference-note,
+.prose-callout,
+.guide-grid,
+.guide-card,
+.insight-grid,
+.insight-card,
+.award-row,
+.property-card,
+.property-card.is-featured,
+.property-card.is-wide,
+.property-card.is-standard,
+.property-card.is-full,
+.service-grid,
+.service-card,
+.portrait-frame,
+.lens-visual,
+.locations-image,
+.about-feature-image,
+.service-trust-image,
+.community-proof-gallery figure,
+.marketplace-preview-image,
+.marketplace-empty-visual,
+.property-card-image,
+.property-detail-facts,
+.property-detail-facts > div,
+.property-location-panel,
+.property-advisor-card,
+.related-property-card,
+.hero,
+.property-detail-hero {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.site-header,
+.header-inner,
+.proof-grid,
+.proof-grid article,
+.process-list,
+.process-list article,
+.guide-grid,
+.guide-card,
+.insight-grid,
+.insight-card,
+.award-row,
+.award-row div,
+.property-card,
+.property-detail-section,
+.property-detail-columns,
+.property-detail-columns > div,
+.property-detail-facts,
+.property-detail-facts > div,
+.property-location-panel,
+.property-location-panel ul,
+.property-location-panel li,
+.property-source-panel,
+.related-property-card,
+.contact-methods,
+.contact-methods a,
+.contact-methods address,
+.marketplace-toolbar,
+.marketplace-toolbar label,
+.market-reference-note,
+.client-spectrum span,
+.location-tags span,
+.button,
+.guide-arrow,
+.property-card-view i,
+.property-detail-price-line span {
+  border-color: rgba(255, 255, 255, 0.24) !important;
+}
+
+body,
+body > main,
+body > main p,
+body > main li,
+body > main address,
+body > main dt,
+body > main dd,
+body > main span,
+body > main small,
+body > main strong,
+body > main blockquote {
+  color: rgba(255, 255, 255, 0.78) !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.44);
+}
+
+body > main h1,
+body > main h2,
+body > main h3,
+body > main h4,
+.statement,
+.page-title {
+  color: white !important;
+  text-shadow: 0 3px 26px rgba(0, 0, 0, 0.58);
+}
+
+.eyebrow,
+.eyebrow.light,
+.brand-ribbon i,
+.guide-number,
+.proof-grid span,
+.service-card-content > span,
+.property-card-meta p,
+.property-card-meta span,
+.property-detail-label,
+.marketplace-toolbar label > span,
+.contact-methods span,
+.footer-links p,
+.footer-address p {
+  color: var(--gold-light) !important;
+}
+
+.button,
+.button-ink,
+.button-gold,
+.market-reset,
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.marketplace-toolbar input,
+.marketplace-toolbar select,
+.client-spectrum span,
+.location-tags span,
+.guide-arrow,
+.property-card-view i {
+  background: rgba(7, 21, 35, 0.28) !important;
+  color: white !important;
+}
+
+.button:hover,
+.button-gold:hover,
+.button-ink:hover,
+.market-reset:hover {
+  background: rgba(201, 164, 93, 0.86) !important;
+  color: var(--ink) !important;
+}
+
+.hero-image video,
+.page-hero-image img,
+.marketplace-hero-image img,
+.property-detail-gallery,
+.locations-image,
+.about-feature-image,
+.service-trust-image,
+.community-proof-gallery,
+.marketplace-preview-image,
+.service-card img,
+.service-overlay,
+.portrait-frame img,
+.lens-visual img,
+.marketplace-empty-visual img,
+.property-card-image img,
+.property-card-image::after,
+.related-property-card img,
+.property-advisor-card > img {
+  opacity: 0 !important;
 }

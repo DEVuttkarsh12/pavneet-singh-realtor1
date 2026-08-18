@@ -66,6 +66,7 @@ export function SiteMotion() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const items = Array.from(document.querySelectorAll<HTMLElement>(revealSelectors));
+    const scrollVideo = document.querySelector<HTMLVideoElement>(".scroll-background-video");
 
     items.forEach((item, index) => {
       item.classList.add("motion-item");
@@ -104,6 +105,12 @@ export function SiteMotion() {
       frame = 0;
       const progress = Math.min(1, window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight));
       document.documentElement.style.setProperty("--scroll-progress", progress.toFixed(4));
+      if (scrollVideo?.duration && Number.isFinite(scrollVideo.duration)) {
+        const targetTime = Math.max(0, Math.min(scrollVideo.duration - 0.05, progress * scrollVideo.duration));
+        if (Math.abs(scrollVideo.currentTime - targetTime) > 0.035) {
+          scrollVideo.currentTime = targetTime;
+        }
+      }
       const viewportCenter = window.innerHeight / 2;
       parallaxItems.forEach(({ element, factor }) => {
         const rect = element.parentElement?.getBoundingClientRect();
@@ -119,6 +126,10 @@ export function SiteMotion() {
       frame = window.requestAnimationFrame(updateParallax);
     };
 
+    const handleVideoReady = () => requestUpdate();
+    scrollVideo?.pause();
+    scrollVideo?.addEventListener("loadedmetadata", handleVideoReady);
+
     updateParallax();
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
@@ -127,10 +138,20 @@ export function SiteMotion() {
       revealObserver.disconnect();
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
+      scrollVideo?.removeEventListener("loadedmetadata", handleVideoReady);
       if (frame) window.cancelAnimationFrame(frame);
       document.body.classList.remove("motion-enabled");
     };
   }, []);
 
-  return <div className="scroll-progress" aria-hidden="true" />;
+  return (
+    <>
+      <div className="scroll-background" aria-hidden="true">
+        <video className="scroll-background-video" muted playsInline preload="auto">
+          <source src="/videos/luxury-penthouse-scroll-bg.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="scroll-progress" aria-hidden="true" />
+    </>
+  );
 }
