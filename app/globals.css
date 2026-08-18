@@ -185,12 +185,12 @@ textarea:focus-visible {
 
 .scroll-background-video {
   width: 100%;
-  height: 100%;
+  height: 112%;
   object-fit: cover;
   opacity: 0.88;
   filter: saturate(0.86) contrast(1.05);
-  transform: translateZ(0);
-  will-change: opacity;
+  transform: translate3d(0, calc(var(--scroll-progress) * -7%), 0) scale(1.04);
+  will-change: transform;
 }
 
 body > main {
@@ -4805,17 +4805,6 @@ body > main {
 .property-card.is-wide,
 .property-card.is-standard,
 .property-card.is-full,
-.service-grid,
-.service-card,
-.portrait-frame,
-.lens-visual,
-.locations-image,
-.about-feature-image,
-.service-trust-image,
-.community-proof-gallery figure,
-.marketplace-preview-image,
-.marketplace-empty-visual,
-.property-card-image,
 .property-detail-facts,
 .property-detail-facts > div,
 .property-location-panel,
@@ -4934,21 +4923,6 @@ body > main h4,
 
 .hero-image video,
 .page-hero-image img,
-.marketplace-hero-image img,
-.property-detail-gallery,
-.locations-image,
-.about-feature-image,
-.service-trust-image,
-.community-proof-gallery,
-.marketplace-preview-image,
-.service-card img,
-.service-overlay,
-.portrait-frame img,
-.lens-visual img,
-.marketplace-empty-visual img,
-.property-card-image img,
-.property-card-image::after,
-.related-property-card img,
-.property-advisor-card > img {
+.marketplace-hero-image img {
   opacity: 0 !important;
 }
