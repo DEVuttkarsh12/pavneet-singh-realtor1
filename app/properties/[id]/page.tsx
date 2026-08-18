@@ -158,9 +158,6 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
                   independently with the listing source and relevant professionals.
                 </p>
               </div>
-              <a className="button button-ink" href={property.sourceUrl} target="_blank" rel="noreferrer">
-                View original source <span aria-hidden="true">↗</span>
-              </a>
             </section>
           </div>
 
