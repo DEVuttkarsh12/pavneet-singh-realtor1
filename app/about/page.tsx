@@ -96,6 +96,28 @@ export default function AboutPage() {
           </article>
         </div>
 
+        <div className="shell" style={{ marginTop: '60px' }}>
+          <p className="eyebrow">Why work with Pavneet</p>
+          <h2 style={{ margin: '0 0 10px', fontFamily: 'var(--serif)', fontSize: '36px', fontWeight: 400 }}>Three strengths in one advisor.</h2>
+          <div className="why-pillars">
+            <article className="why-pillar">
+              <div className="why-pillar-number">01</div>
+              <h3>Financial modelling and analysis</h3>
+              <p>A background in finance brings disciplined cash flow analysis, investment return modelling, and closing cost clarity to every real estate conversation, whether residential or commercial.</p>
+            </article>
+            <article className="why-pillar">
+              <div className="why-pillar-number">02</div>
+              <h3>Construction knowledge and inspection acumen</h3>
+              <p>Practical experience in construction supports a sharper eye during property viewings, condition assessments, renovation feasibility reviews, and development evaluations across Nova Scotia.</p>
+            </article>
+            <article className="why-pillar">
+              <div className="why-pillar-number">03</div>
+              <h3>Multilingual relocation specialist</h3>
+              <p>Fluency in six languages and a personal understanding of building a life in Canada equips Pavneet to guide newcomers, international buyers, and relocating families with empathy and precision.</p>
+            </article>
+          </div>
+        </div>
+
         <div className="shell award-row" aria-label="Professional recognition">
           <div>
             <strong>100+</strong>
@@ -113,6 +135,12 @@ export default function AboutPage() {
             <strong>Gratitude</strong>
             <span>Nova Noble Cause Society</span>
           </div>
+        </div>
+
+        <div className="shell" style={{ marginTop: '40px' }}>
+          <p style={{ color: 'var(--muted)', fontSize: '13px', lineHeight: 1.8 }}>
+            Pavneet Singh is a licensed REALTOR® with Sutton Group Professional Realty, registered with the Nova Scotia Real Estate Commission (NSREC). He is a member of the Canadian Real Estate Association (CREA), the Nova Scotia Association of REALTORS® (NSAR), and has access to the Nova Scotia MLS® system for comprehensive market coverage.
+          </p>
         </div>
       </section>
 
@@ -166,6 +194,39 @@ export default function AboutPage() {
           <Link className="button button-gold" href="/contact">
             Discuss your goals <span aria-hidden="true">↗</span>
           </Link>
+        </div>
+      </section>
+
+      <section className="faq-section">
+        <div className="shell">
+          <p className="eyebrow">Frequently asked questions</p>
+          <h2 style={{ margin: '0', fontFamily: 'var(--serif)', fontSize: '36px', fontWeight: 400 }}>Common questions about working with Pavneet.</h2>
+          <div className="faq-list">
+            <details className="faq-item">
+              <summary>What areas of Nova Scotia does Pavneet serve?</summary>
+              <div className="faq-answer">Pavneet provides advisory services across all of Nova Scotia, with deep local expertise in Halifax, Bedford, Dartmouth, Hammonds Plains, Sackville, Truro, the Annapolis Valley, and Cape Breton. Whether you are buying, selling, or investing in urban Halifax or rural Nova Scotia, Pavneet can help.</div>
+            </details>
+            <details className="faq-item">
+              <summary>Can Pavneet help newcomers to Canada buy their first home?</summary>
+              <div className="faq-answer">Absolutely. Pavneet has extensive experience helping newcomers navigate the Canadian real estate process, from understanding mortgage pre-approval requirements and down payment rules for non-permanent residents to selecting the right neighbourhood for schools, transit, and community. He can communicate in English, Punjabi, Hindi, Urdu, Gujarati, and Spanish.</div>
+            </details>
+            <details className="faq-item">
+              <summary>What is a buyer representation agreement?</summary>
+              <div className="faq-answer">A buyer representation agreement formalizes the working relationship between you and your REALTOR®. It outlines the services you will receive, the geographic area and property types covered, the term of the agreement, and how your agent is compensated. In Nova Scotia, this agreement ensures your REALTOR® has a fiduciary duty to protect your interests throughout the transaction.</div>
+            </details>
+            <details className="faq-item">
+              <summary>Does Pavneet work with real estate investors?</summary>
+              <div className="faq-answer">Yes. Pavneet advises clients on income-producing properties, multi-unit investments, commercial acquisitions, and development land. His finance background supports rigorous cash flow analysis, cap rate evaluation, and long-term portfolio strategy for investors at every stage.</div>
+            </details>
+            <details className="faq-item">
+              <summary>What are the typical closing costs when buying a home in Nova Scotia?</summary>
+              <div className="faq-answer">In Nova Scotia, buyers should budget for the deed transfer tax (1.5% of purchase price in Halifax Regional Municipality), legal fees ($1,200–$1,800), home inspection ($450–$700), title insurance ($250–$400), and property tax adjustments. Pavneet provides a detailed closing cost breakdown specific to your purchase early in the process.</div>
+            </details>
+            <details className="faq-item">
+              <summary>Can I buy or sell property from outside Nova Scotia?</summary>
+              <div className="faq-answer">Yes. Pavneet regularly assists out-of-province buyers relocating to Nova Scotia from Ontario, British Columbia, Alberta, and internationally. Virtual consultations, video property tours, and coordinated inspections make remote transactions manageable. Note that non-resident buyers in Nova Scotia are subject to an additional 5% deed transfer tax surcharge on residential properties.</div>
+            </details>
+          </div>
         </div>
       </section>
 

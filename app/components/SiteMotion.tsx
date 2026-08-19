@@ -115,7 +115,7 @@ export function SiteMotion() {
     <>
       <div className="scroll-background" aria-hidden="true">
         <video className="scroll-background-video" autoPlay muted loop playsInline preload="auto">
-          <source src="/videos/luxury-penthouse-scroll-bg.mp4" type="video/mp4" />
+          <source src="/videos/halifax-drone-hero.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="scroll-progress" aria-hidden="true" />

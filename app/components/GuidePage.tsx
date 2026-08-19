@@ -17,6 +17,7 @@ type GuidePageProps = {
   steps: GuideStep[];
   ctaTitle: string;
   ctaText: string;
+  children?: React.ReactNode;
 };
 
 export function GuidePage({
@@ -28,6 +29,7 @@ export function GuidePage({
   steps,
   ctaTitle,
   ctaText,
+  children,
 }: GuidePageProps) {
   return (
     <main className="page-shell">
@@ -68,6 +70,7 @@ export function GuidePage({
               </article>
             ))}
           </div>
+          {children}
         </div>
       </section>
 

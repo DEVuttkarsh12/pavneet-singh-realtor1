@@ -266,10 +266,13 @@ body > main {
 
 .hero {
   position: relative;
-  min-height: 900px;
+  height: 100vh;
   height: 100svh;
+  max-height: 100vh;
+  max-height: 100svh;
+  min-height: 600px;
   overflow: hidden;
-  background: var(--ink);
+  background: transparent !important;
   color: white;
 }
 
@@ -332,7 +335,7 @@ body > main {
   grid-template-columns: minmax(0, 1fr) 250px;
   align-items: center;
   gap: 72px;
-  padding: 132px 0 72px;
+  padding: 100px 0 50px;
 }
 
 .hero-copy {
@@ -3673,10 +3676,10 @@ body > main {
     padding: 82px 0;
   }
 }
-/* V12: compact marketplace, focused hero, personal brand, and consolidated guides */
 .hero {
-  min-height: 720px;
-  height: min(92svh, 900px);
+  height: 100vh !important;
+  height: 100svh !important;
+  min-height: 600px;
 }
 
 .hero-image video {
@@ -4540,8 +4543,9 @@ body > main {
 
 @media (max-width: 760px) {
   .hero {
-    min-height: 680px;
-    height: 88svh;
+    height: 100vh !important;
+    height: 100svh !important;
+    min-height: 550px;
   }
 
   .hero-image video {
@@ -4924,5 +4928,963 @@ body > main h4,
 .hero-image video,
 .page-hero-image img,
 .marketplace-hero-image img {
-  opacity: 0 !important;
+  opacity: 1 !important;
 }
+
+.hero-shade {
+  background: linear-gradient(90deg, rgba(7, 21, 35, 0.75) 0%, rgba(7, 21, 35, 0.55) 50%, rgba(7, 21, 35, 0.45) 100%),
+              linear-gradient(180deg, rgba(7, 21, 35, 0.5) 0%, rgba(7, 21, 35, 0.7) 100%) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   INFORMATIVE CONTENT ENHANCEMENT STYLES
+   Added for testimonials, FAQ, language badges,
+   market data, neighbourhood guides, closing costs, etc.
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Testimonials Section ── */
+.testimonials-section {
+  padding: 110px 0;
+  background: var(--ivory);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 30px 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  background: white;
+}
+
+.testimonial-card .testimonial-stars {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.testimonial-card blockquote {
+  flex: 1;
+  margin: 0 0 24px;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  font-style: italic;
+}
+
+.testimonial-card .testimonial-attribution {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.testimonial-card .testimonial-attribution strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.testimonial-card .testimonial-attribution span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ── Language Badge Bar ── */
+.language-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 36px;
+}
+
+.language-bar span {
+  padding: 10px 14px;
+  border: 1px solid var(--gold);
+  border-radius: var(--control-radius);
+  background: rgba(201, 164, 93, 0.08);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.language-bar-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+/* ── Market Snapshot Section ── */
+.market-snapshot {
+  padding: 70px 0;
+  background: var(--ink-soft);
+  color: white;
+}
+
+.market-snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.market-snapshot-grid article {
+  padding: 30px 25px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.market-snapshot-grid article:last-child {
+  border-right: 0;
+}
+
+.market-snapshot-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--serif);
+  font-size: clamp(28px, 2.8vw, 42px);
+  font-weight: 400;
+  color: white;
+}
+
+.market-snapshot-grid p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+}
+
+.market-snapshot-note {
+  margin-top: 20px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.32);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .market-snapshot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .market-snapshot-grid article:nth-child(2) {
+    border-right: 0;
+  }
+}
+
+/* ── FAQ Accordion ── */
+.faq-section {
+  padding: 90px 0;
+  background: var(--ivory);
+}
+
+.faq-list {
+  margin-top: 50px;
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  line-height: 1.35;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  margin-left: 20px;
+  font-family: var(--sans);
+  font-size: 24px;
+  color: var(--gold);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item .faq-answer {
+  padding: 0 0 28px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 760px;
+}
+
+/* ── Closing Cost / Data Tables ── */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  font-size: 15px;
+}
+
+.info-table th,
+.info-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.info-table th {
+  background: var(--ivory);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.info-table td {
+  color: var(--muted);
+}
+
+.info-table td:first-child {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.info-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.info-table-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Info Callout Box (for guides) ── */
+.info-callout {
+  margin: 40px 0;
+  padding: 30px;
+  border-radius: var(--panel-radius);
+  background: rgba(201, 164, 93, 0.08);
+  border: 1px solid rgba(201, 164, 93, 0.2);
+}
+
+.info-callout h4 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.info-callout p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.info-callout ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ── Neighbourhood Guide Page ── */
+.neighbourhood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.neighbourhood-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+  background: white;
+}
+
+.neighbourhood-card-image {
+  height: 210px;
+  overflow: hidden;
+}
+
+.neighbourhood-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neighbourhood-card-body {
+  padding: 28px 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.neighbourhood-card-body h3 {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.neighbourhood-card-body .neighbourhood-type {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 5px 10px;
+  background: var(--ivory);
+  border-radius: var(--control-radius);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.neighbourhood-card-body p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.neighbourhood-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.neighbourhood-highlights span {
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .neighbourhood-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Featured Properties Preview (Homepage) ── */
+.featured-properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.featured-property-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+  background: white;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featured-property-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.featured-property-card-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-property-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-property-card-image .featured-property-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  background: var(--gold);
+  border-radius: var(--control-radius);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.featured-property-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-property-card-body h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.featured-property-card-body .featured-property-location {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.featured-property-card-body .featured-property-price {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.featured-property-card-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .featured-properties-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── "Why Choose" 3-Pillar Section ── */
+.why-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.why-pillar {
+  padding: 36px 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  background: white;
+}
+
+.why-pillar .why-pillar-number {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+}
+
+.why-pillar h3 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.why-pillar p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .why-pillars {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Deliverables Section ── */
+.service-deliverables {
+  margin-top: 14px;
+  padding: 18px 22px;
+  background: var(--ivory);
+  border-radius: var(--control-radius);
+}
+
+.service-deliverables p {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.service-deliverables ul {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ── Relocation / Newcomer Section ── */
+.relocation-section {
+  padding: 80px 0;
+  background: var(--ivory);
+}
+
+.relocation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.relocation-card {
+  padding: 30px 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  background: white;
+}
+
+.relocation-card h4 {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.relocation-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .relocation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Footer Enhancements ── */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.15s ease;
+}
+
+.footer-social a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.footer-disclaimer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1.7;
+  max-width: 860px;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.footer-legal-links a {
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.footer-legal-links a:hover {
+  color: var(--gold-light);
+}
+
+/* ── Guide Deep Content Additions ── */
+.guide-deep-section {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+}
+
+.guide-deep-section h3 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.guide-deep-section > p {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.guide-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.guide-program-card {
+  padding: 24px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  background: white;
+}
+
+.guide-program-card h4 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.guide-program-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .guide-programs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CRITICAL CONTRAST & VISIBILITY OVERRIDES
+   Ensures crisp dark text on white/light cards & sections
+   ═══════════════════════════════════════════════════════ */
+
+/* Light Sections (Ivory / Paper backgrounds) */
+.testimonials-section,
+.faq-section,
+.relocation-section {
+  color: var(--ink) !important;
+}
+
+.testimonials-section h2,
+.testimonials-section .section-heading h2,
+.faq-section h2,
+.faq-section .section-heading h2,
+.relocation-section h2,
+.relocation-section .section-heading h2,
+.relocation-section .section-heading p,
+.relocation-section .heading-note {
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+
+.testimonials-section .eyebrow,
+.faq-section .eyebrow,
+.relocation-section .eyebrow {
+  color: var(--gold) !important;
+  text-shadow: none !important;
+}
+
+/* Testimonial Cards */
+.testimonial-card,
+.testimonial-card * {
+  text-shadow: none !important;
+}
+
+.testimonial-card {
+  background: #ffffff !important;
+  border-color: rgba(7, 21, 35, 0.15) !important;
+}
+
+.testimonial-card .testimonial-stars {
+  color: var(--gold) !important;
+}
+
+.testimonial-card blockquote {
+  color: var(--ink) !important;
+}
+
+.testimonial-card .testimonial-attribution strong {
+  color: var(--ink) !important;
+}
+
+.testimonial-card .testimonial-attribution span {
+  color: var(--muted) !important;
+}
+
+/* Featured Property Cards (Homepage) */
+.featured-property-card,
+.featured-property-card * {
+  text-shadow: none !important;
+}
+
+.featured-property-card {
+  background: #ffffff !important;
+}
+
+.featured-property-card-body h4 {
+  color: var(--ink) !important;
+}
+
+.featured-property-card-body .featured-property-location {
+  color: var(--muted) !important;
+}
+
+.featured-property-card-body .featured-property-price {
+  color: var(--ink) !important;
+}
+
+.featured-property-card-meta span {
+  color: var(--muted) !important;
+}
+
+.featured-property-badge {
+  color: var(--ink) !important;
+  background: var(--gold) !important;
+}
+
+/* Neighbourhood Cards */
+.neighbourhood-card,
+.neighbourhood-card * {
+  text-shadow: none !important;
+}
+
+.neighbourhood-card {
+  background: #ffffff !important;
+}
+
+.neighbourhood-type {
+  color: var(--ink) !important;
+  background: var(--ivory) !important;
+}
+
+.neighbourhood-card-body h3 {
+  color: var(--ink) !important;
+}
+
+.neighbourhood-card-body p {
+  color: var(--muted) !important;
+}
+
+.neighbourhood-highlights span {
+  color: var(--muted) !important;
+  border-color: rgba(7, 21, 35, 0.15) !important;
+}
+
+/* Relocation / Settlement Cards */
+.relocation-card,
+.relocation-card * {
+  text-shadow: none !important;
+}
+
+.relocation-card {
+  background: #ffffff !important;
+  border-color: rgba(7, 21, 35, 0.15) !important;
+}
+
+.relocation-card h4 {
+  color: var(--ink) !important;
+}
+
+.relocation-card p {
+  color: var(--muted) !important;
+}
+
+/* Why Work With Pavneet Pillars */
+.why-pillar,
+.why-pillar * {
+  text-shadow: none !important;
+}
+
+.why-pillar {
+  background: #ffffff !important;
+  border-color: rgba(7, 21, 35, 0.15) !important;
+}
+
+.why-pillar .why-pillar-number {
+  color: var(--gold) !important;
+}
+
+.why-pillar h3 {
+  color: var(--ink) !important;
+}
+
+.why-pillar p {
+  color: var(--muted) !important;
+}
+
+/* FAQ Accordion Items */
+.faq-item,
+.faq-item * {
+  text-shadow: none !important;
+}
+
+.faq-item summary {
+  color: var(--ink) !important;
+}
+
+.faq-item .faq-answer {
+  color: var(--muted) !important;
+}
+
+/* Tables & Callout Boxes */
+.info-table,
+.info-table * {
+  text-shadow: none !important;
+}
+
+.info-table th {
+  color: var(--ink) !important;
+  background: var(--ivory) !important;
+}
+
+.info-table td {
+  color: var(--muted) !important;
+}
+
+.info-table td:first-child {
+  color: var(--ink) !important;
+}
+
+.info-table-note {
+  color: var(--muted) !important;
+}
+
+.info-callout,
+.info-callout * {
+  text-shadow: none !important;
+}
+
+.info-callout h4 {
+  color: var(--ink) !important;
+}
+
+.info-callout p,
+.info-callout ul,
+.info-callout li {
+  color: var(--muted) !important;
+}
+
+.guide-program-card,
+.guide-program-card * {
+  text-shadow: none !important;
+}
+
+.guide-program-card {
+  background: #ffffff !important;
+  border-color: rgba(7, 21, 35, 0.15) !important;
+}
+
+.guide-program-card h4 {
+  color: var(--ink) !important;
+}
+
+.guide-program-card p {
+  color: var(--muted) !important;
+}
+
+/* Language Bar & Service Deliverables */
+.language-bar span {
+  color: var(--ink) !important;
+  text-shadow: none !important;
+  border-color: var(--gold) !important;
+}
+
+.language-bar-label {
+  color: var(--gold) !important;
+  text-shadow: none !important;
+}
+
+.service-deliverables,
+.service-deliverables * {
+  text-shadow: none !important;
+}
+
+.service-deliverables p {
+  color: var(--gold) !important;
+}
+
+.service-deliverables li {
+  color: var(--muted) !important;
+}
+

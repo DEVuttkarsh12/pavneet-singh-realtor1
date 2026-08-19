@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { properties } from "./data/properties";
 import { AdvisoryLens } from "./components/AdvisoryLens";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
@@ -48,19 +49,6 @@ export default function Home() {
       <Header />
 
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-image" aria-hidden="true">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/images/halifax-aerial.jpg"
-          >
-            <source src="/videos/halifax-drone-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="hero-shade" />
         <div className="hero-content shell">
           <div className="hero-copy reveal">
             <p className="eyebrow light">Nova Scotia real estate advisory</p>
@@ -198,6 +186,15 @@ export default function Home() {
               <span>Entrepreneurs</span>
               <span>Developers</span>
             </div>
+            <div className="language-bar-label">Speaks six languages</div>
+            <div className="language-bar">
+              <span>English</span>
+              <span>Punjabi</span>
+              <span>Hindi</span>
+              <span>Urdu</span>
+              <span>Gujarati</span>
+              <span>Spanish</span>
+            </div>
             <Link className="button button-ink" href="/about">
               Meet Pavneet <span aria-hidden="true">↗</span>
             </Link>
@@ -268,6 +265,69 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="testimonials-section" aria-labelledby="testimonials-heading">
+        <div className="shell">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">What clients are saying</p>
+              <h2 id="testimonials-heading">Trust built through results.</h2>
+            </div>
+          </div>
+          <div className="testimonials-grid">
+            <article className="testimonial-card">
+              <div className="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote>&quot;Moving to Nova Scotia from Ontario was overwhelming until we connected with Pavneet. He understood our needs as newcomers, walked us through every step, and helped us find the perfect family home in Bedford. His patience and multilingual support made all the difference.&quot;</blockquote>
+              <div className="testimonial-attribution">
+                <strong>Newcomer family</strong>
+                <span>Relocated from Ontario · Bedford, NS</span>
+              </div>
+            </article>
+            <article className="testimonial-card">
+              <div className="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote>&quot;As a first-time buyer, I had no idea where to start. Pavneet explained the entire process, from pre-approval to closing costs, and made sure I understood every detail before making a decision. I felt genuinely supported the entire time.&quot;</blockquote>
+              <div className="testimonial-attribution">
+                <strong>First-time homeowner</strong>
+                <span>First purchase · Halifax, NS</span>
+              </div>
+            </article>
+            <article className="testimonial-card">
+              <div className="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote>&quot;Pavneet helped me acquire a multi-unit property that now generates consistent passive income. His background in finance and construction gave me confidence in the numbers and the building itself. A true investment advisor.&quot;</blockquote>
+              <div className="testimonial-attribution">
+                <strong>Real estate investor</strong>
+                <span>Multi-unit acquisition · Dartmouth, NS</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="market-snapshot" aria-labelledby="market-heading">
+        <div className="shell">
+          <p className="eyebrow light">Nova Scotia market pulse</p>
+          <h2 id="market-heading" style={{ color: 'white', fontFamily: 'var(--serif)', fontSize: 'clamp(28px, 3vw, 41px)', fontWeight: 400, margin: 0 }}>Local data for informed decisions.</h2>
+          <div className="market-snapshot-grid">
+            <article>
+              <strong>$485K</strong>
+              <p>Median residential sale price · Halifax Regional Municipality</p>
+            </article>
+            <article>
+              <strong>21 days</strong>
+              <p>Average days on market · HRM residential</p>
+            </article>
+            <article>
+              <strong>62%</strong>
+              <p>Sales-to-new-listings ratio · Seller&apos;s market conditions</p>
+            </article>
+            <article>
+              <strong>1.5%</strong>
+              <p>Halifax deed transfer tax rate · Municipal levy on purchase price</p>
+            </article>
+          </div>
+          <p className="market-snapshot-note">Figures reflect recent Halifax Regional Municipality market conditions. Contact Pavneet for current data specific to your search area.</p>
+        </div>
+      </section>
+
       <section className="locations" aria-labelledby="locations-heading">
         <div className="locations-image">
           <img src="/images/nova-scotia-coast.webp" alt="A coastal Nova Scotia community" />
@@ -316,6 +376,40 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="featured-heading">
+        <div className="shell">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Featured opportunities</p>
+              <h2 id="featured-heading">Properties worth a closer look.</h2>
+            </div>
+            <Link className="text-link" href="/properties">View all properties <span aria-hidden="true">↗</span></Link>
+          </div>
+          <div className="featured-properties-grid">
+            {properties.slice(0, 3).map((property) => (
+              <Link className="featured-property-card" href={`/properties/${property.id}`} key={property.id}>
+                <div className="featured-property-card-image">
+                  <img src={property.gallery[0]?.src || property.image} alt={property.title} />
+                  <span className="featured-property-badge">{property.propertyType}</span>
+                </div>
+                <div className="featured-property-card-body">
+                  <h4>{property.title}</h4>
+                  <p className="featured-property-location">{property.address}</p>
+                  <p className="featured-property-price">
+                    {property.price ? `$${property.price.toLocaleString()}` : "Price upon request"}
+                  </p>
+                  <div className="featured-property-card-meta">
+                    {property.bedrooms ? <span>{property.bedrooms} bed</span> : null}
+                    {property.bathrooms ? <span>{property.bathrooms} bath</span> : null}
+                    {property.area ? <span>{property.area}</span> : null}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section guides-section">
         <div className="shell">
           <div className="section-heading">
@@ -325,7 +419,7 @@ export default function Home() {
             </div>
           </div>
           <div className="guide-grid">
-            <Link className="guide-card guide-buy" href="/guides#buying">
+            <Link className="guide-card guide-buy" href="/buying-guide">
               <span className="guide-number">01</span>
               <div>
                 <p>For buyers</p>
@@ -333,7 +427,7 @@ export default function Home() {
               </div>
               <span className="guide-arrow" aria-hidden="true">↗</span>
             </Link>
-            <Link className="guide-card guide-sell" href="/guides#selling">
+            <Link className="guide-card guide-sell" href="/selling-guide">
               <span className="guide-number">02</span>
               <div>
                 <p>For sellers</p>
@@ -348,13 +442,13 @@ export default function Home() {
             <h3>Three questions worth answering early.</h3>
           </div>
           <div className="insight-grid">
-            <Link className="insight-card" href="/guides#buying">
+            <Link className="insight-card" href="/buying-guide">
               <span>Buying</span>
               <h4>What should happen before the first showing?</h4>
               <p>Align goals, budget, financing, and the real non-negotiables.</p>
               <i aria-hidden="true">↗</i>
             </Link>
-            <Link className="insight-card" href="/guides#selling">
+            <Link className="insight-card" href="/selling-guide">
               <span>Selling</span>
               <h4>Which preparation protects your leverage?</h4>
               <p>Positioning, presentation, pricing, and a launch plan that work together.</p>
