@@ -109,9 +109,11 @@ export default function Home() {
         </a>
       </section>
 
-      <div className="hero-search-wrapper">
-        <HomeSearchToolbar />
-      </div>
+      <section className="home-search-section" aria-label="Quick property search">
+        <div className="shell">
+          <HomeSearchToolbar />
+        </div>
+      </section>
 
       <section className="intro-band">
         <div className="shell intro-grid">
