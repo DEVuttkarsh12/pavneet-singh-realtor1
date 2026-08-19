@@ -13,6 +13,9 @@ export default function TermsPage() {
     <main className="page-shell">
       <Header />
       <section className="page-hero">
+        <div className="page-hero-image">
+          <img src="/images/halifax-aerial.jpg" alt="Nova Scotia legal and terms" />
+        </div>
         <div className="page-hero-content shell">
           <p className="eyebrow light">Legal &amp; Governance</p>
           <h1>Terms of Service</h1>

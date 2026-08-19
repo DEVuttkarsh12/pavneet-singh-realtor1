@@ -13,6 +13,9 @@ export default function PrivacyPolicyPage() {
     <main className="page-shell">
       <Header />
       <section className="page-hero">
+        <div className="page-hero-image">
+          <img src="/images/halifax-aerial.jpg" alt="Nova Scotia legal and privacy" />
+        </div>
         <div className="page-hero-content shell">
           <p className="eyebrow light">Legal &amp; Privacy</p>
           <h1>Privacy Policy</h1>
