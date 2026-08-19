@@ -13,21 +13,23 @@ export default function AboutPage() {
     <main className="page-shell">
       <Header />
       <section className="page-hero about-personal-hero">
-        <div className="page-hero-image">
-          <img src="/images/pavneet-studio-portrait.jpg" alt="Pavneet Singh, Nova Scotia real estate advisor" />
-        </div>
-        <div className="page-hero-content shell">
-          <p className="eyebrow light">About Pavneet Singh</p>
-          <h1>A relationship built on trust and results.</h1>
-          <p className="lead">
-            Your family REALTOR® with Sutton Group Professional Realty,
-            helping people create opportunity, security, and a future in Nova Scotia.
-          </p>
-          <div className="about-hero-signature">
-            <span>Residential</span>
-            <span>Investment</span>
-            <span>Commercial</span>
-            <span>Development</span>
+        <div className="shell about-hero-layout">
+          <div className="about-hero-copy">
+            <p className="eyebrow light">About Pavneet Singh</p>
+            <h1>A relationship built on trust and results.</h1>
+            <p className="lead">
+              Your family REALTOR® with Sutton Group Professional Realty,
+              helping people create opportunity, security, and a future in Nova Scotia.
+            </p>
+            <div className="about-hero-signature">
+              <span>Residential</span>
+              <span>Investment</span>
+              <span>Commercial</span>
+              <span>Development</span>
+            </div>
+          </div>
+          <div className="about-hero-portrait-frame">
+            <img src="/images/pavneet-studio-portrait.jpg" alt="Pavneet Singh, Nova Scotia real estate advisor" />
           </div>
         </div>
       </section>
