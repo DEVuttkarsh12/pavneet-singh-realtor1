@@ -6041,6 +6041,169 @@ body {
   text-shadow: none !important;
 }
 
+/* ═══════════════════════════════════════════════════════
+   GLOBAL CONTRAST & SMALL TEXT LEGIBILITY AUDIT
+   Ensures zero small text or subtitles merge into background
+   ═══════════════════════════════════════════════════════ */
+
+/* Light Sections & Light Cards */
+.intro-band .body-large,
+.heading-note,
+.prose p,
+.prose li,
+.why-pillar p,
+.relocation-card p,
+.guide-program-card p,
+.info-callout p,
+.faq-answer,
+.featured-property-location,
+.featured-property-card-meta span,
+.property-card-location,
+.property-card-meta span {
+  color: #334155 !important; /* Dark Slate High Contrast */
+  text-shadow: none !important;
+}
+
+.info-table-note {
+  color: #475569 !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+
+/* Eyebrows */
+.eyebrow {
+  color: #b38b36 !important; /* Deep Rich Gold for Light Backgrounds */
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-shadow: none !important;
+}
+
+.eyebrow.light,
+.on-dark .eyebrow,
+.hero .eyebrow,
+.section-dark .eyebrow,
+.market-snapshot .eyebrow,
+.locations .eyebrow,
+.contact-section .eyebrow,
+.footer .eyebrow {
+  color: var(--gold-light) !important; /* Metallic Gold for Dark Backgrounds */
+  text-shadow: none !important;
+}
+
+/* Dark Sections Small Text */
+.section-dark p,
+.proof-section p,
+.market-snapshot p,
+.locations p,
+.contact-section p,
+.footer p,
+.market-snapshot-note,
+.proof-card p {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.market-snapshot-grid article p {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.market-snapshot-grid article strong {
+  color: var(--gold-light) !important;
+  font-weight: 700 !important;
+}
+
+/* Footer Legibility */
+.footer-note {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.footer-links p {
+  color: var(--gold-light) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.footer-links a:hover {
+  color: white !important;
+}
+
+.footer-address p,
+.footer-address address {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.footer-disclaimer {
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+}
+
+.footer-legal-links a {
+  color: var(--gold-light) !important;
+  font-weight: 600 !important;
+}
+
+/* Guide Navigation Sidebar */
+.guide-nav a {
+  color: #475569 !important;
+  font-weight: 500 !important;
+  border-left-color: rgba(7, 21, 35, 0.15) !important;
+}
+
+.guide-nav a:hover,
+.guide-nav a:focus {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  border-left-color: var(--gold) !important;
+}
+
+/* Client Spectrum & Tags */
+.client-spectrum span,
+.location-tags span {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+  background: white !important;
+  border: 1px solid rgba(7, 21, 35, 0.18) !important;
+  text-shadow: none !important;
+}
+
+/* Property Detail Page Facts */
+.property-detail-facts > div span {
+  color: var(--muted) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+
+.property-detail-facts > div strong {
+  color: var(--ink) !important;
+  font-size: 18px !important;
+}
+
+.property-location-panel li {
+  color: var(--ink) !important;
+}
+
+/* Form Input Placeholders & Notes */
+.contact-form label > span,
+.marketplace-toolbar label > span {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+
+.form-note {
+  color: #475569 !important;
+  font-size: 13px !important;
+}
+
+
 
 
 
