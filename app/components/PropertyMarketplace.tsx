@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useMemo, useState, useEffect } from "react";
 import type { Property } from "../data/properties";
 
 type Props = {
@@ -20,9 +21,16 @@ function propertyTypeLabel(value: Property["propertyType"]) {
 }
 
 export function PropertyMarketplace({ properties }: Props) {
-  const [query, setQuery] = useState("");
-  const [type, setType] = useState("all");
-  const [availability, setAvailability] = useState("available");
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("query") || "");
+  const [type, setType] = useState(searchParams.get("type") || "all");
+  const [availability, setAvailability] = useState(searchParams.get("availability") || "available");
+
+  useEffect(() => {
+    if (searchParams.has("query")) setQuery(searchParams.get("query") || "");
+    if (searchParams.has("type")) setType(searchParams.get("type") || "all");
+    if (searchParams.has("availability")) setAvailability(searchParams.get("availability") || "available");
+  }, [searchParams]);
 
   const visibleProperties = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();

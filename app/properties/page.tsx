@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { PropertyMarketplace } from "../components/PropertyMarketplace";
@@ -36,7 +37,9 @@ export default function PropertiesPage() {
         </div>
       </section>
 
-      <PropertyMarketplace properties={properties} />
+      <Suspense fallback={<div className="shell" style={{ padding: "40px 0" }}>Loading marketplace...</div>}>
+        <PropertyMarketplace properties={properties} />
+      </Suspense>
 
       <section className="marketplace-service-note">
         <div className="shell">

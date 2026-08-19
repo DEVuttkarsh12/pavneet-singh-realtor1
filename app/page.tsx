@@ -5,6 +5,7 @@ import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { RequirementSelector } from "./components/RequirementSelector";
+import { HomeSearchToolbar } from "./components/HomeSearchToolbar";
 
 const services = [
   {
@@ -107,6 +108,10 @@ export default function Home() {
           Explore <span aria-hidden="true">↓</span>
         </a>
       </section>
+
+      <div className="hero-search-wrapper">
+        <HomeSearchToolbar />
+      </div>
 
       <section className="intro-band">
         <div className="shell intro-grid">
