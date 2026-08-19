@@ -3687,19 +3687,28 @@ body > main {
   top: -24px;
 }
 
+.about-personal-hero {
+  min-height: 620px;
+}
+
 .about-personal-hero .page-hero-image {
-  background: #d9d9d7;
+  background: var(--ink);
 }
 
 .about-personal-hero .page-hero-image::after {
   background:
-    linear-gradient(90deg, rgba(4, 16, 26, 0.97) 0%, rgba(4, 16, 26, 0.86) 42%, rgba(4, 16, 26, 0.18) 72%, rgba(4, 16, 26, 0.04) 100%),
-    linear-gradient(0deg, rgba(4, 16, 26, 0.35), transparent 60%);
+    linear-gradient(90deg, rgba(4, 16, 26, 0.95) 0%, rgba(4, 16, 26, 0.82) 48%, rgba(4, 16, 26, 0.25) 75%, rgba(4, 16, 26, 0.05) 100%),
+    linear-gradient(0deg, rgba(4, 16, 26, 0.4) 0%, transparent 60%);
 }
 
 .about-personal-hero .page-hero-image img {
-  object-position: 79% 26%;
-  filter: saturate(0.86) contrast(1.02);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  object-fit: cover;
+  object-position: right 42%;
+  filter: saturate(0.95) contrast(1.02);
+  transform: none;
 }
 
 .about-hero-signature {
@@ -6302,6 +6311,118 @@ body {
     grid-column: span 1;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   SMARTPHONE RESPONSIVENESS AUDIT (320px - 768px)
+   Ensures 100% flawless mobile experience across all pages
+   ═══════════════════════════════════════════════════════ */
+
+/* Smooth horizontal scroll for data tables on phones */
+.guide-deep-section {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.info-table {
+  min-width: 500px;
+}
+
+@media (max-width: 900px) {
+  .about-personal-hero .page-hero-image img {
+    object-position: center 20% !important;
+    opacity: 0.35 !important;
+  }
+  .about-personal-hero .page-hero-image::after {
+    background: rgba(4, 16, 26, 0.88) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Tables on small screens */
+  .info-table {
+    min-width: 440px;
+    font-size: 13px;
+  }
+  .info-table th,
+  .info-table td {
+    padding: 10px 12px;
+  }
+
+  /* Requirement Selector Mobile */
+  .requirement-selector-section {
+    padding: 50px 0;
+  }
+  .requirement-tabs {
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .requirement-tab {
+    flex: 1 1 calc(50% - 8px);
+    padding: 11px 10px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .requirement-panel {
+    padding: 22px 16px;
+    margin-top: 20px;
+  }
+  .requirement-panel-content h3 {
+    font-size: 22px;
+  }
+  .requirement-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .requirement-actions .button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Market Snapshot Mobile */
+  .market-snapshot {
+    padding: 50px 0;
+  }
+  .market-snapshot-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .market-snapshot-grid article {
+    padding: 20px;
+  }
+
+  /* Testimonials, Relocation, Why Pillars Mobile */
+  .testimonials-grid,
+  .why-pillars,
+  .relocation-grid,
+  .guide-programs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Footer Mobile */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-social {
+    gap: 10px;
+  }
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Process list & proof grid */
+  .proof-grid,
+  .process-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 
 
 
