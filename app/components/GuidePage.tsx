@@ -70,8 +70,13 @@ export function GuidePage({
               </article>
             ))}
           </div>
-          {children}
         </div>
+
+        {children ? (
+          <div className="shell guide-deep-container" style={{ marginTop: "60px" }}>
+            {children}
+          </div>
+        ) : null}
       </section>
 
       <section className="page-cta">
