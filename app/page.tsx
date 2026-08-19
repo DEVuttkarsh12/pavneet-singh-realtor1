@@ -49,6 +49,19 @@ export default function Home() {
       <Header />
 
       <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-image" aria-hidden="true">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/images/halifax-aerial.jpg"
+          >
+            <source src="/videos/halifax-drone-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="hero-shade" />
         <div className="hero-content shell">
           <div className="hero-copy reveal">
             <p className="eyebrow light">Nova Scotia real estate advisory</p>

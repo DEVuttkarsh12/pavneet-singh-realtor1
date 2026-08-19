@@ -4787,101 +4787,92 @@ body > main {
 .marketplace-hero,
 .property-detail-content,
 .marketplace-browser,
-.marketplace-service-note,
-.related-properties,
-.page-cta,
-.contact-page-form,
-.footer,
-.section-dark,
-.lens-stage,
-.contact-form,
-.marketplace-toolbar,
-.marketplace-empty,
-.market-reference-note,
-.prose-callout,
-.guide-grid,
-.guide-card,
-.insight-grid,
-.insight-card,
-.award-row,
-.property-card,
-.property-card.is-featured,
-.property-card.is-wide,
-.property-card.is-standard,
-.property-card.is-full,
-.property-detail-facts,
-.property-detail-facts > div,
-.property-location-panel,
-.property-advisor-card,
-.related-property-card,
-.hero,
-.property-detail-hero {
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
+/* ═══════════════════════════════════════════════════════
+   STATIC BACKGROUND SECTION SYSTEM
+   Video plays ONLY in .hero. All other sections have
+   distinct, luxurious static solid backgrounds.
+   ═══════════════════════════════════════════════════════ */
+
+body {
+  background: var(--paper);
+  color: var(--ink);
 }
 
-.site-header,
-.header-inner,
-.proof-grid,
-.proof-grid article,
-.process-list,
-.process-list article,
-.guide-grid,
-.guide-card,
-.insight-grid,
-.insight-card,
-.award-row,
-.award-row div,
-.property-card,
-.property-detail-section,
-.property-detail-columns,
-.property-detail-columns > div,
-.property-detail-facts,
-.property-detail-facts > div,
-.property-location-panel,
-.property-location-panel ul,
-.property-location-panel li,
-.property-source-panel,
-.related-property-card,
-.contact-methods,
-.contact-methods a,
-.contact-methods address,
-.marketplace-toolbar,
-.marketplace-toolbar label,
-.market-reference-note,
-.client-spectrum span,
-.location-tags span,
-.button,
-.guide-arrow,
-.property-card-view i,
-.property-detail-price-line span {
-  border-color: rgba(255, 255, 255, 0.24) !important;
+.hero {
+  position: relative;
+  height: 100vh !important;
+  height: 100svh !important;
+  min-height: 600px;
+  overflow: hidden;
+  background: var(--ink) !important;
+  color: white;
 }
 
-body,
-body > main,
-body > main p,
-body > main li,
-body > main address,
-body > main dt,
-body > main dd,
-body > main span,
-body > main small,
-body > main strong,
-body > main blockquote {
-  color: rgba(255, 255, 255, 0.78) !important;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.44);
+.hero-image video {
+  opacity: 1 !important;
 }
 
-body > main h1,
-body > main h2,
-body > main h3,
-body > main h4,
-.statement,
-.page-title {
+.hero-shade {
+  background: linear-gradient(90deg, rgba(3, 16, 27, 0.82) 0%, rgba(3, 16, 27, 0.55) 50%, rgba(3, 16, 27, 0.35) 100%),
+              linear-gradient(0deg, rgba(3, 16, 27, 0.6) 0%, transparent 40%) !important;
+}
+
+.intro-band {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+}
+
+.intro-band .statement,
+.intro-band .body-large {
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+
+.brand-ribbon {
+  background: var(--ink-soft) !important;
+  color: var(--gold-light) !important;
+}
+
+.section-dark {
+  background: var(--ink) !important;
   color: white !important;
-  text-shadow: 0 3px 26px rgba(0, 0, 0, 0.58);
+}
+
+.portrait-section {
+  background: var(--ivory) !important;
+  color: var(--ink) !important;
+}
+
+.process {
+  background: var(--paper) !important;
+}
+
+.proof-section {
+  background: var(--ink-soft) !important;
+  color: white !important;
+}
+
+.locations {
+  background: var(--ink) !important;
+  color: white !important;
+}
+
+.marketplace-preview {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+}
+
+.guides-section {
+  background: var(--ivory) !important;
+}
+
+.contact-section {
+  background: var(--ink) !important;
+  color: white !important;
+}
+
+.footer {
+  background: #040d16 !important;
 }
 
 .eyebrow,
