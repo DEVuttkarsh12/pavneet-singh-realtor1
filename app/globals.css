@@ -5879,3 +5879,129 @@ body {
   color: var(--muted) !important;
 }
 
+/* ── Interactive Requirement Selector (Sandra Pike Hierarchy) ── */
+.requirement-selector-section {
+  padding: 90px 0;
+  background: var(--paper) !important;
+  border-bottom: 1px solid var(--line);
+}
+
+.requirement-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+}
+
+.requirement-tab {
+  padding: 14px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  background: white;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.requirement-tab:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.requirement-tab.is-active {
+  background: var(--ink) !important;
+  color: white !important;
+  border-color: var(--ink) !important;
+  box-shadow: 0 4px 16px rgba(7, 21, 35, 0.15);
+}
+
+.requirement-panel {
+  margin-top: 30px;
+  padding: 40px;
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  background: white !important;
+}
+
+.requirement-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--ivory);
+  border-radius: var(--control-radius);
+  color: var(--gold) !important;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.requirement-panel-content h3 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+
+.requirement-panel-content p {
+  margin: 0 0 24px;
+  color: var(--muted) !important;
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 800px;
+  text-shadow: none !important;
+}
+
+.requirement-sub-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.requirement-option-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--ivory);
+  border-radius: var(--control-radius);
+  font-size: 14px;
+  color: var(--ink) !important;
+}
+
+.requirement-option-chip i {
+  color: var(--gold) !important;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.requirement-option-chip span {
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+
+.requirement-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .requirement-sub-options {
+    grid-template-columns: 1fr;
+  }
+  .requirement-panel {
+    padding: 24px;
+  }
+}
+
+

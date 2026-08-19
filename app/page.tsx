@@ -4,6 +4,7 @@ import { AdvisoryLens } from "./components/AdvisoryLens";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { RequirementSelector } from "./components/RequirementSelector";
 
 const services = [
   {
@@ -122,6 +123,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <RequirementSelector />
 
       <div className="brand-ribbon" aria-hidden="true">
         <div>
