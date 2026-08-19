@@ -6004,26 +6004,43 @@ body {
   }
 }
 
-/* ── Page Hero Typography Contrast Fix ── */
+/* ── Page Hero & Marketplace Hero Typography Contrast Fix ── */
 .page-hero,
-.page-hero-content {
+.page-hero-content,
+.marketplace-hero,
+.marketplace-hero-content,
+.property-detail-hero {
   color: white !important;
 }
 
-.page-hero h1 {
+.page-hero h1,
+.marketplace-hero h1,
+.marketplace-hero-content h1,
+.property-detail-hero h1 {
   color: #ffffff !important;
-  text-shadow: 0 3px 26px rgba(0, 0, 0, 0.65) !important;
+  text-shadow: 0 3px 26px rgba(0, 0, 0, 0.75) !important;
 }
 
-.page-hero .lead {
+.page-hero .lead,
+.marketplace-hero-content > p,
+.property-detail-hero p {
   color: rgba(255, 255, 255, 0.88) !important;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5) !important;
 }
 
-.page-hero .eyebrow {
+.page-hero .eyebrow,
+.marketplace-hero .eyebrow,
+.property-detail-hero .eyebrow {
   color: var(--gold-light) !important;
   text-shadow: none !important;
 }
+
+.marketplace-hero-meta span {
+  color: var(--gold-light) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  text-shadow: none !important;
+}
+
 
 
 
